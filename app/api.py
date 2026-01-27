@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from routers import metrics
+from routers import metrics,aws
 
 app = FastAPI(
     title="Internal DevOps Utilities API",
@@ -15,3 +15,4 @@ def hello():
 
 
 app.include_router(metrics.router)
+app.include_router(aws.router, prefix="/aws")
